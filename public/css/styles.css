@@ -1,0 +1,364 @@
+#sidebar-logo {
+    width: 100px;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #001f2e;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.status-approved {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-rejected {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .status-pending {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .status-make_up {
+    color: darkslateblue;
+    font-weight: bold;
+  }
+  
+  .status-voided {
+    color: purple;
+    font-weight: bold;
+  }
+  
+  .status-default {
+    color: gray;
+    font-weight: bold;
+  }
+  
+.main-content {
+    transition: margin-left 0.3s ease;
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+}
+.card {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.card-icon {
+    float: right;
+}
+/* :root {
+    --background: #fff;
+    --color: #000;
+    --primary-color: #0f3460;
+}
+
+.theme-btn-container {
+    position: absolute;
+    right: 0;
+    top: 2rem;
+}
+
+.theme-btn {
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.theme-btn:hover {
+    width: 40px !important;
+}
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--color);
+    transition: background 0.2s ease;
+} */
+:root {
+    --background: #FFF;
+    --color: #000;
+    --primary-color: #007bff;
+}
+
+body {
+    background: var(--background);
+    color: var(--color);
+    transition: background 0.3s, color 0.3s;
+}
+
+.settings-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.settings-icon.sun {
+    background: #f9c74f;
+}
+
+.settings-icon.moon {
+    background: #333;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #34495e;
+}
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #001224;
+    padding-left: 20px;
+}
+
+.dropdown-content a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ecf0f1;
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #3b5998;
+}
+
+.menu-btn {
+    font-size: 30px;
+    color: #ecf0f1;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    
+    .sidebar {
+        width: 0;
+        height: 100%;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+    
+    .sidebar.open {
+        width: 250px;
+    }
+    .settings-icon {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    transition: background 0.3s;
+}
+}
+.mobile-nav {
+    display: none;
+}
+.top-nav
+{
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #001f2e;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1000;
+        font-size: 12px;
+    }
+
+    .mobile-nav a {
+        flex-grow: 1;
+        text-align: center;
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+        
+    }
+
+    .mobile-nav a i {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 5px;
+    }
+
+    .mobile-nav a:hover {
+        background-color: #003f5c;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding-bottom: 60px; 
+        padding-top: 30px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+    }
+
+    .top-nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #001f2e;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        z-index: 1000;
+    }
+
+    .top-nav-left img {
+        height: 40px;
+    }
+
+    .top-nav-right a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 24px;
+        margin-left: 15px;
+    }
+
+    .main-content {
+        padding-top: 60px; /* Adjust this to prevent content overlap with top nav */
+    }
+    
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.dropdown-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    min-width: 160px;
+    margin-right: 10px;
+}
+.dropdown-menu {
+    right: 0; /* Align to the right */
+    left: auto; /* Remove default left alignment */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 8px 16px;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+}
+
