@@ -1,4 +1,4 @@
-name: ft_intent_clients
+name: ft_intent_merchants
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         username: root
         key: ${{ secrets.DO_SSH_KEY }}
         source: "."
-        target: "/var/www/clients.foxridge.fun"
+        target: "/var/www/merchants.foxridge.fun"
   
     - name: SSH and deploy
       uses: appleboy/ssh-action@master
@@ -29,10 +29,10 @@ jobs:
         username: root  
         key: ${{ secrets.DO_SSH_KEY }}
         script: |
-          cd /var/www/clients.foxridge.fun
+          cd /var/www/merchants.foxridge.fun
           composer install --no-dev --optimize-autoloader
           php artisan migrate --force
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
-          chown -R www-data:www-data /var/www/clients.foxridge.fun
+          chown -R www-data:www-data /var/www/merchants.foxridge.fun
