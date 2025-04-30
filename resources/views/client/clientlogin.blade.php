@@ -19,12 +19,12 @@
 
     <!-- Include SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    
     <style>
         :root {
-            --background: #1a1a2e;
-            --color: #ffffff;
-            --primary-color: #0f3460;
+            --background: #192A51;
+            --color: #FFFFFF;
+            --primary-color: #967AA1;
         }
 
         * {
