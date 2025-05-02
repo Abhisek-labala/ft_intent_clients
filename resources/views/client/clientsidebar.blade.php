@@ -7,7 +7,7 @@
 
     <a href="{{route('client.dashboard')}}"><i class="fas fa-tachometer-alt"></i><span class="link-text">Dashboard</span></a>
 
-    <div class="dropdown">
+    <!-- <div class="dropdown">
         <a href="javascript:void(0)" class="dropdown-toggle" onclick="toggleDropdown('analyticsDropdown')">
             <i class="fa-solid fa-chart-simple"></i><span class="link-text">Analytics</span>
         </a>
@@ -15,7 +15,7 @@
             <a href="{{route('client.payinAnalytics')}}"><i class="fa-solid fa-wallet"></i>Payin</a>
             <a href="{{route('client.payoutAnalytics')}}"><i class="fa-solid fa-hand-holding-dollar"></i>Payout</a>
         </div>
-    </div>
+    </div> -->
 
     <div class="dropdown">
         <a href="javascript:void(0)" class="dropdown-toggle" onclick="toggleDropdown('financeDropdown')">
@@ -28,7 +28,7 @@
     </div>
     <div class="dropdown">
         <a href="javascript:void(0)" class="dropdown-toggle" onclick="toggleDropdown('accountDropdown')">
-        <i class="fa-solid fa-briefcase"></i><span class="link-text">Accounting</span> 
+        <i class="fa-solid fa-briefcase"></i><span class="link-text">Accounting</span>
         </a>
         <div class="dropdown-content" id="accountDropdown">
             <a href="{{route('clientsettlement')}}"><i class="fa-solid fa-coins"></i><span class="link-text">Settlement</span></a>
@@ -49,9 +49,9 @@
     </form>
 </div>
 <div class="mobile-nav">
-        <a href="{{route('client.analytics')}}" class="nav-link" data-title="Analytics">
+        <!-- <a href="{{route('client.analytics')}}" class="nav-link" data-title="Analytics">
         <i class="fa-solid fa-chart-simple"></i><span class="link-text">Analytics</span>
-        </a>
+        </a> -->
         <a href="{{route('clientdeposit')}}" class="nav-link" data-title="Deposites">
         <i class="fa-solid fa-money-check-dollar"></i><span class="link-text">Deposites</span>
         </a>
@@ -64,6 +64,10 @@
         <a href="#" class="nav-link"   id="settlement-link" data-title="Settlements">
         <i class="fa-solid fa-coins"></i><span class="link-text">Accounting</span>
         </a>
+        <a href="{{route('clientreport')}}" title="Reports">
+                    <i class="fa-solid fa-book"></i>
+                    Reports
+                </a>
     </div>
     <div id="toast-modal" class="toast-modal" style="display:none;">
         <button class="close-toast" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
@@ -90,10 +94,10 @@
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                    Others
                 </a> -->
-                <a href="{{route('clientreport')}}" title="Reports">
+                <!-- <a href="{{route('clientreport')}}" title="Reports">
                     <i class="fa-solid fa-book"></i>
                     Reports
-                </a>
+                </a> -->
                 <!-- <a href="{{route('clientsupport')}}" title="supports">
                 <i class="fa-solid fa-chalkboard-user"></i>
                     Supports

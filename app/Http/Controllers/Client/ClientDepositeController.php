@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\DepositTransMaster;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
-use App\Models\Transaction; 
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -21,26 +22,18 @@ class ClientDepositeController extends Controller
 {
     $userid=Auth::id();
     $username = User::where('id', $userid)->value('username');
-    $payins = Transaction::select([
-            'transactions.id',
-            'transactions.client_transaction_id',
-            'transactions.order_id',
-            'transactions.channel',
-            'transactions.channel_id',
-            'transactions.status',
-            'transactions.transaction_ref_no',
-            'transactions.amount_inr',
-            'transactions.created_at',
-        ])
-        ->leftJoin('users as users', 'transactions.user_id', '=', 'users.id') // Use left join to include transactions without a user
-        ->where('transaction_type', 'credited')
-        ->where('merchant_name',$username)
-        ->whereNot('status','Initiated')
-        ->orderBy('transactions.id','desc')
-        ->get();
+    $payins =DepositTransMaster::where('our_client_user_name',$username)
+    ->select([
+        'id',
+        'our_client_order_id',
+        'realamount',
+        'apply_amount',
+        'status',
+        'created_at'
+    ])->get();
 
     return DataTables::of($payins)
         ->make(true);
 }
-    
+
 }

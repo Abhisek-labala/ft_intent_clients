@@ -23,13 +23,10 @@
                 <th>#</th>
                 <th>ID</th>
                 <th>Order ID</th>
-                <th>Transaction ID</th>
-                <th>Channel</th>
-                <th>Channel ID</th>
-                <th>UTR No</th>
-                <th>Amount</th>
+                <th>Requested Amount</th>
+                <th>Actual Amount</th>
                 <th>Status</th>
-                <th>Credited At</th>
+                <th>Created At</th>
             </tr>
         </thead>
     </table>
@@ -77,66 +74,17 @@
             },
             columns: [
                 {
-                    data: null,
+                    data: 'id',
                     render: function (data, type, row, meta) {
                         return meta.row + 1; // Serial number based on the row index
                     },
                     title: "Sl No." // Optional: You can specify the title for the slno column
                 },
                 { data: 'id', visible: false },
-                { data: 'order_id' },
-                { data: 'client_transaction_id' },
-                { data: 'channel' },
-                {
-                    data: 'channel_id',
-                    render: function (data, type, row) {
-                        if (row.channel === 'BANK' || row.channel === 'Bank A/c') {
-                            try {
-                                // Decode HTML entities
-                                let decodedData = $('<div/>').html(data).text();
-                                // Parse the JSON data
-                                let details = JSON.parse(decodedData);
-                                return `
-                            <div>
-                                <strong>Bank Name:</strong> ${details.bank_name}<br>
-                                <strong>Account No:</strong> ${details.account_number}<br>
-                                <strong>Account Name:</strong> ${details.account_holder_name}<br>
-                                <strong>IFSC Code:</strong> ${details.ifsc_code}
-                            </div>
-                        `;
-                            } catch (e) {
-                                console.error("Failed to parse JSON", e);
-                                return 'Invalid data';
-                            }
-                        } else {
-                            return data;
-                        }
-                    }
-                },
-                { data: 'transaction_ref_no' },
-                { data: 'amount_inr' },
-                {
-                    data: 'status',
-                    render: function (data, type, row) {
-                        let statusClass = 'status-default';
-                        if (data === 'approved') {
-                            statusClass = 'status-approved';
-                        } else if (data === 'rejected') {
-                            statusClass = 'status-rejected';
-                        } else if (data === 'pending') {
-                            statusClass = 'status-pending';
-                        } else if (data === 'make_up') {
-                            statusClass = 'status-make_up';
-                        } else if (data === 'voided') {
-                            statusClass = 'status-voided';
-                        } else if (data === 'expired') {
-                            statusClass = 'status-expired';
-                        } else if (data === 'timed_out') {
-                            statusClass = 'status-timed_out';
-                        }
-                        return `<span class="${statusClass}">${data}</span>`;
-                    }
-                },
+                { data: 'our_client_order_id' },
+                { data: 'apply_amount' },
+                { data: 'realamount' },
+                { data: 'status' },
                 {
                     data: 'created_at',
                     render: function (data, type, row) {
