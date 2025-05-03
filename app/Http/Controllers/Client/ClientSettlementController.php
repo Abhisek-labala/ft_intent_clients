@@ -8,12 +8,11 @@ use App\Models\ClientAmountDetail;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use App\Services\FirebaseService;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
 class ClientSettlementController extends Controller
 {
-    
+
     public function getData(Request $request)
     {
         $username = auth()->user()->username;
@@ -93,7 +92,7 @@ class ClientSettlementController extends Controller
         ], 200);
     }
 
-    public function submitSettlement(Request $request, FirebaseService $firebaseService)
+    public function submitSettlement(Request $request)
     {
         $username = auth()->user()->username;
 
@@ -138,21 +137,11 @@ class ClientSettlementController extends Controller
                     'final_settled_amount' => $SettlementAmount,
                     'settlement_transaction_fees'=>$transactionfees,
                 ]);
-               
+
 
                 // Commit the transaction
                 DB::commit();
                 $adminUsers = User::where('role', 'admin')->get();
-                foreach ($adminUsers as $admin) {
-                    if ($admin->fcm_token) {
-                        $firebaseService->sendNotification(
-                            $admin->fcm_token,
-                            'New Settlement Request',
-                            'A Settlement of $' . $validatedData['amount'] . ' has been processed for user: ' . $username
-                        );
-                        Log::info('Settlement Notification sent to admin', ['admin_username' => $admin->username, 'withdraw_no' =>$settlementNumber]);
-                    }
-                }
                 // Return a success response
                 return response()->json([
                     'message' => 'Settlement request submitted successfully.',

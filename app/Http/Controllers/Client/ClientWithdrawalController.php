@@ -9,7 +9,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use App\Services\FirebaseService;
 use Illuminate\Support\Facades\Log;
 
 class ClientWithdrawalController extends Controller
@@ -56,7 +55,7 @@ class ClientWithdrawalController extends Controller
             ->make(true);
     }
 
-    public function submitwithdraw(Request $request, FirebaseService $firebaseService)
+    public function submitwithdraw(Request $request)
     {
         $username = auth()->user()->username;
 
@@ -76,7 +75,7 @@ class ClientWithdrawalController extends Controller
             $withdrawnumber = 'FTWD-' . mt_rand(1000, 9999) . time();
             DB::beginTransaction();
             try {
-                
+
                 // Create a new settlement request
                 $withdraw = ClientWithdraw::create([
                     'withdraw_no' => $withdrawnumber,
@@ -98,18 +97,6 @@ class ClientWithdrawalController extends Controller
 
                 // Commit the transaction
                 DB::commit();
-                $adminUsers = User::where('role', 'admin')->get();
-                foreach ($adminUsers as $admin) {
-                    if ($admin->fcm_token) {
-                        $firebaseService->sendNotification(
-                            $admin->fcm_token,
-                            'New Withdrawal Request',
-                            'A withdrawal of $' . $validatedData['amount'] . ' has been processed for user: ' . $username
-                        );
-                        Log::info('Withdrawal Notification sent to admin', ['admin_username' => $admin->username, 'withdraw_no' => $withdrawnumber]);
-                    }
-                }
-
                 // Return a success response
                 return response()->json([
                     'message' => 'Withdraw request submitted successfully.',
