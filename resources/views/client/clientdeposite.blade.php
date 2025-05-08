@@ -80,10 +80,10 @@
                     },
                     title: "Sl No." // Optional: You can specify the title for the slno column
                 },
-                { data: 'id', visible: false },
-                { data: 'our_client_order_id' },
-                { data: 'apply_amount' },
-                { data: 'realamount' },
+                { data: 'payin_id', visible: false },
+                { data: 'order_id' },
+                { data: 'applied_amount' },
+                { data: 'real_amount' },
                 { data: 'status' },
                 {
                     data: 'created_at',

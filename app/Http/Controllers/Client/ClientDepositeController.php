@@ -22,15 +22,18 @@ class ClientDepositeController extends Controller
 {
     $userid=Auth::id();
     $username = User::where('id', $userid)->value('username');
-    $payins =DepositTransMaster::where('our_client_user_name',$username)
+    $payins = DepositTransMaster::where('our_client_user_name', $username)
+    ->leftJoin('deposite_status_code as dsc', 'DepositTransMaster.deposite_status_code', '=', 'dsc.status_code')
     ->select([
-        'id',
-        'our_client_order_id',
-        'realamount',
-        'apply_amount',
-        'status',
-        'created_at'
-    ])->get();
+        'DepositTransMaster.id as payin_id',
+        'DepositTransMaster.our_client_order_id as order_id',
+        'DepositTransMaster.realamount as real_amount',
+        'DepositTransMaster.apply_amount as applied_amount',
+        'DepositTransMaster.deposite_status_code as status_code',
+        'DepositTransMaster.created_at as created_at',
+        'dsc.status_label as status'  // Alias for 'deposite_status_code'
+    ])
+    ->get();
 
     return DataTables::of($payins)
         ->make(true);
