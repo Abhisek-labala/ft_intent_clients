@@ -36,7 +36,7 @@ class ClientWithdrawController extends Controller
         'wtm.apply_ifsc',
         'wtm.status',
         'wtm.created_at',
-        'wtc.status_label'
+        'wsc.status_label'
         ])
             ->get();
 
