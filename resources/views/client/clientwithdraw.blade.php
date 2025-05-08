@@ -94,7 +94,7 @@
                 { data: 'apply_bank_code' },
                 { data: 'apply_ifsc' },
                 {
-                    data: 'status_label',
+                    data: 'status_level',
                 },
                 {
                     data: 'created_at',
