@@ -22,7 +22,9 @@ class ClientWithdrawController extends Controller
     {
         $userid=Auth::id();
     $username = User::where('id', $userid)->value('username');
-        $payouts = WithdrawTransMaster::where('our_client_user_name',$username)
+        $payouts = DB::table('withdraw_trans_master as wtm')
+        ->where('our_client_user_name',$username)
+        ->leftJoin('withdraw_status_code as wsc','wsc.status_code','=','wtm.withdraw_status_code')
         ->select(['id',
         'our_client_order_id',
         'remittance_amount',
@@ -34,6 +36,7 @@ class ClientWithdrawController extends Controller
         'apply_ifsc',
         'status',
         'created_at',
+        'status_label'
         ])
             ->get();
 
