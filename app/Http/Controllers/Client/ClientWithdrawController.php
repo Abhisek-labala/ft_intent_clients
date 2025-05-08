@@ -25,18 +25,18 @@ class ClientWithdrawController extends Controller
         $payouts = DB::table('withdraw_trans_master as wtm')
         ->where('our_client_user_name',$username)
         ->leftJoin('withdraw_status_code as wsc','wsc.status_code','=','wtm.withdraw_status_code')
-        ->select(['id',
-        'our_client_order_id',
-        'remittance_amount',
-        'apply_amount',
-        'apply_user_name',
-        'apply_account',
-        'apply_bank_name',
-        'apply_bank_code',
-        'apply_ifsc',
-        'status',
-        'created_at',
-        'status_label'
+        ->select(['wtm.id',
+        'wtm.our_client_order_id',
+        'wtm.remittance_amount',
+        'wtm.apply_amount',
+        'wtm.apply_user_name',
+        'wtm.apply_account',
+        'wtm.apply_bank_name',
+        'wtm.apply_bank_code',
+        'wtm.apply_ifsc',
+        'wtm.status',
+        'wtm.created_at',
+        'wtc.status_label'
         ])
             ->get();
 
