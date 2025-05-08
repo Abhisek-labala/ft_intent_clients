@@ -74,7 +74,7 @@
             },
             columns: [
                 {
-                    data: 'id',
+                    data: null,
                     render: function (data, type, row, meta) {
                         return meta.row + 1; // Serial number based on the row index
                     },
