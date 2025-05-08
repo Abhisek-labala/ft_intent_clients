@@ -22,7 +22,8 @@ class ClientDepositeController extends Controller
 {
     $userid=Auth::id();
     $username = User::where('id', $userid)->value('username');
-    $payins =  DB::table('deposit_trans_master as dtm')::where('our_client_user_name', $username)
+    $payins =  DB::table('deposit_trans_master as dtm')
+    ->where('our_client_user_name', $username)
     ->leftJoin('deposite_status_code as dsc', 'dtm.deposite_status_code', '=', 'dsc.status_code')
     ->select([
         'dtm.id as payin_id',
