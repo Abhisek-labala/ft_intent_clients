@@ -10,7 +10,7 @@
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: #001f2e;
+    background-color: #201341e3;
     overflow-y: auto;
     transition: all 0.3s ease;
     z-index: 1000;
@@ -19,32 +19,32 @@
     color: green;
     font-weight: bold;
   }
-  
+
   .status-rejected {
     color: red;
     font-weight: bold;
   }
-  
+
   .status-pending {
     color: orange;
     font-weight: bold;
   }
-  
+
   .status-make_up {
     color: darkslateblue;
     font-weight: bold;
   }
-  
+
   .status-voided {
     color: purple;
     font-weight: bold;
   }
-  
+
   .status-default {
     color: gray;
     font-weight: bold;
   }
-  
+
 .main-content {
     transition: margin-left 0.3s ease;
     margin-left: 250px;
@@ -183,14 +183,14 @@ body {
     .menu-btn {
         display: block;
     }
-    
+
     .sidebar {
         width: 0;
         height: 100%;
         overflow: hidden;
         transition: 0.3s;
     }
-    
+
     .sidebar.open {
         width: 250px;
     }
@@ -233,7 +233,7 @@ body {
         left: 0;
         width: 100%;
         height: 50px;
-        background-color: #001f2e;
+        background-color: #201341e3;
         justify-content: space-around;
         align-items: center;
         z-index: 1000;
@@ -246,7 +246,7 @@ body {
         padding: 10px;
         color: #fff;
         text-decoration: none;
-        
+
     }
 
     .mobile-nav a i {
@@ -261,7 +261,7 @@ body {
 
     .main-content {
         margin-left: 0;
-        padding-bottom: 60px; 
+        padding-bottom: 60px;
         padding-top: 30px;
         margin-top: 50px;
         margin-bottom: 50px;
@@ -275,7 +275,7 @@ body {
         left: 0;
         width: 100%;
         height: 60px;
-        background-color: #001f2e;
+        background-color: #201341e3;
         justify-content: space-between;
         align-items: center;
         padding: 0 10px;
@@ -296,11 +296,11 @@ body {
     .main-content {
         padding-top: 60px; /* Adjust this to prevent content overlap with top nav */
     }
-    
+
 .dropdown {
     position: relative;
     display: inline-block;
-    
+
 }
 
 .dropdown-toggle {
