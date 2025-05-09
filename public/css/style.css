@@ -15,7 +15,7 @@
     left: 0;
     width: 200px;
     height: 100%;
-    background-color: #6a0dad;;
+    background-color: #201341e3;
     overflow-y: auto;
     transition: all 0.3s ease;
     z-index: 1000;
@@ -184,7 +184,7 @@
         left: 0;
         width: 100%;
         height: 50px;
-        background-color: #001f2e;
+        background-color: #201341e3;
         justify-content: space-around;
         align-items: center;
         z-index: 1000;
@@ -226,7 +226,7 @@
         left: 0;
         width: 100%;
         height: 60px;
-        background-color: #001f2e;
+        background-color: #201341e3;
         justify-content: space-between;
         align-items: center;
         padding: 0 10px;
@@ -350,7 +350,7 @@
             }
         }
 .nav{
-    background-color: #001f2e;
+    background-color: #201341e3;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
