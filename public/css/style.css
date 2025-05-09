@@ -15,7 +15,7 @@
     left: 0;
     width: 200px;
     height: 100%;
-    background-color: #001f2e;
+    background-color: #6a0dad;;
     overflow-y: auto;
     transition: all 0.3s ease;
     z-index: 1000;
@@ -197,7 +197,7 @@
         padding: 10px;
         color: #fff;
         text-decoration: none;
-        
+
     }
 
     .mobile-nav a i {
@@ -212,7 +212,7 @@
 
     .main-content {
         margin-left: 0;
-        padding-bottom: 60px; 
+        padding-bottom: 60px;
         padding-top: 30px;
         margin-top: 50px;
         margin-bottom: 50px;
@@ -247,11 +247,11 @@
     .main-content {
         padding-top: 60px; /* Adjust this to prevent content overlap with top nav */
     }
-    
+
 .dropdown {
     position: relative;
     display: inline-block;
-    
+
 }
 
 .dropdown-toggle {
@@ -333,7 +333,7 @@
             .statusFilters{
                 display: none;
             }
-            
+
         }
 
         /* Custom styles for desktop view */
@@ -357,7 +357,7 @@
     border-bottom-right-radius: 50px    ;
 
 }
-.nav .btn 
+.nav .btn
 {
     color: #fff;
 }
