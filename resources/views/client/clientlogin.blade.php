@@ -219,7 +219,7 @@
     <div class="container">
         <div class="screen">
             <div class="screen__content">
-                <form class="login" id="loginForm" method="POST" action="/login"> <!-- Update action URL as needed -->
+                <form class="login" id="loginForm" method="POST" action="{{ route('clientlogin') }}"> <!-- Update action URL as needed -->
                     <div class="login-logo">
                         <img src="{{asset('uploads/Logo/logo_new.png')}}" alt="Company Logo">
                     </div>
