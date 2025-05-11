@@ -35,7 +35,7 @@
                 document.documentElement.style.setProperty('--color', '#000');
                 document.documentElement.style.setProperty('--primary-color', '#007bff');
                 icon.innerHTML = '<i class="fas fa-moon"></i>';
-                icon.className = 'settings-icon moon'; 
+                icon.className = 'settings-icon moon';
             } else {
                 // Switch to dark theme
                 body.style.background = '#000';
@@ -48,8 +48,6 @@
             }
         };
 
-        document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
-
         document.getElementById('settlement-link').addEventListener('click', function(e) {
         e.preventDefault();
         document.getElementById('toast-modal').style.display = 'block';
@@ -58,7 +56,7 @@
     function closeToast() {
         document.getElementById('toast-modal').style.display = 'none';
     }
-    
+
 </script>
 
 </body>
