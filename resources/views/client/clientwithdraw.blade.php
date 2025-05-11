@@ -107,6 +107,9 @@
             order: [[0, 'desc']],
             dom: 'Bfrtip',
             pageLength: 10,
+            scrollX:true,
+              scrollCollapse: true, // Prevent excessive scrolling
+                fixedColumns: true,
             lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
             buttons: [
                 {
@@ -144,8 +147,8 @@
     }
 
     #payout-table th {
-        background-color: #001f2e;
-        color: #FFF;
+        background-color: #7952B3;
+        color: #000;
     }
 
     .status-approved {

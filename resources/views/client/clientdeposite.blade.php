@@ -94,19 +94,7 @@
             ],
             responsive: true,
             order: [[0, 'desc']],
-            dom: 'Bfrtip',
-            buttons: [
-                {
-                    extend: 'excelHtml5',
-                    text: 'Excel',
-                    className: 'btn-success'
-                },
-                {
-                    extend: 'print',
-                    text: 'Print',
-                    className: 'btn-primary'
-                }
-            ],
+
         });
         function showToast(type, title, text) {
             Swal.fire({
@@ -132,10 +120,14 @@
     }
 
     #payin-table th {
-        background-color: #001f2e;
-        color: #FFF;
+        background-color: #7952B3;
+        color: #000;
     }
-
+    .btn-primry
+    {
+         background-color: #7952B3;
+        color: #fff;
+    }
     .status-approved {
         color: green;
         font-weight: bold;

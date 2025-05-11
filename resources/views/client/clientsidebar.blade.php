@@ -3,20 +3,7 @@
     <div class="navbar-brand">
         <img src="{{ asset('uploads/Logo/logo_new.png') }}" alt="Brand Logo" id="sidebar-logo" />
     </div>
-    <span class="menu-btn" onclick="toggleSidebar()">&#9776;</span> <!-- Hamburger menu icon -->
-
     <a href="{{route('client.dashboard')}}"><i class="fas fa-tachometer-alt"></i><span class="link-text">Dashboard</span></a>
-
-    <!-- <div class="dropdown">
-        <a href="javascript:void(0)" class="dropdown-toggle" onclick="toggleDropdown('analyticsDropdown')">
-            <i class="fa-solid fa-chart-simple"></i><span class="link-text">Analytics</span>
-        </a>
-        <div class="dropdown-content" id="analyticsDropdown">
-            <a href="{{route('client.payinAnalytics')}}"><i class="fa-solid fa-wallet"></i>Payin</a>
-            <a href="{{route('client.payoutAnalytics')}}"><i class="fa-solid fa-hand-holding-dollar"></i>Payout</a>
-        </div>
-    </div> -->
-
     <div class="dropdown">
         <a href="javascript:void(0)" class="dropdown-toggle" onclick="toggleDropdown('financeDropdown')">
             <i class="fa-solid fa-money-bill-transfer"></i><span class="link-text text-wrap">Deposit & Withdrawal</span>
@@ -35,11 +22,8 @@
             <a href="{{route('clientwithdrawal')}}"><i class="fa-solid fa-money-bill-wheat"></i>Withdraw</a>
         </div>
     </div>
-    <!-- <a href=""><i class="fa-solid fa-screwdriver-wrench"></i><span class="link-text">Others</span></a> -->
     <a href="{{route('clientreport')}}"><i class="fa-solid fa-book"></i><span class="link-text">
     Reports</span></a>
-    <!-- <a href="{{route('clientsupport')}}" class="nav-link" data-title="Pay Out"><i class="fa-solid fa-chalkboard-user"></i><span class="link-text">Support</span></a> -->
-    <!-- <a href="" class="nav-link" data-title="Reports"><i class="fa-solid fa-circle-info"></i><span class="link-text">To Know us</span></a> -->
     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         <i class="fas fa-sign-out-alt"></i><span class="link-text">Logout</span>
     </a>
@@ -49,9 +33,6 @@
     </form>
 </div>
 <div class="mobile-nav">
-        <!-- <a href="{{route('client.analytics')}}" class="nav-link" data-title="Analytics">
-        <i class="fa-solid fa-chart-simple"></i><span class="link-text">Analytics</span>
-        </a> -->
         <a href="{{route('clientdeposit')}}" class="nav-link" data-title="Deposites">
         <i class="fa-solid fa-money-check-dollar"></i><span class="link-text">Deposites</span>
         </a>
@@ -90,23 +71,7 @@
                 <i class="fa-solid fa-circle-user" style="color:#fff;"></i>
             </button>
             <div class="dropdown-menu">
-                <!-- <a href="" title="Add Merchant">
-                <i class="fa-solid fa-screwdriver-wrench"></i>
-                   Others
-                </a> -->
-                <!-- <a href="{{route('clientreport')}}" title="Reports">
-                    <i class="fa-solid fa-book"></i>
-                    Reports
-                </a> -->
-                <!-- <a href="{{route('clientsupport')}}" title="supports">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                    Supports
-                </a> -->
-                <!-- <a href="" title="Reports">
-                <i class="fa-solid fa-circle-info"></i>
-                   To Know Us
-                </a> -->
-                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').`su`bmit();">
                     <i class="fas fa-sign-out-alt"></i>
                     Logout
                 </a>

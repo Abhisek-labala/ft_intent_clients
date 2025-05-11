@@ -3,25 +3,8 @@
 
 <div class="main-content">
     <h2 id="titlepage">Withdraw Requests</h2>
-    
-    <!-- Add date filters for start and end date -->
-    <div class="container">
-    <div class="row mb-3">
-        <!-- Start Date -->
-        <div class="col-12 col-sm-6 mb-3 mb-sm-0">
-            <label for="start-date" class="form-label">Start Date</label>
-            <input type="date" id="start-date" class="form-control" placeholder="Start Date">
-        </div>
-
-        <!-- End Date -->
-        <div class="col-12 col-sm-6">
-            <label for="end-date" class="form-label">End Date</label>
-            <input type="date" id="end-date" class="form-control" placeholder="End Date">
-        </div>
-    </div>
-</div>
     <div class="d-flex justify-content-end mb-3">
-        <button id="create-Withdrawal-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createWithdrawalModal">Create Request</button>
+        <button id="create-Withdrawal-btn" class="btn btn-primry" data-bs-toggle="modal" data-bs-target="#createWithdrawalModal">Create Request</button>
     </div>
     <table id="Withdrawal-table" class="table table-striped">
         <thead>
@@ -64,8 +47,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="submitWithdrawal" class="btn btn-primary">Submit Request</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="submitWithdrawal" class="btn btn-primay">Submit Request</button>
             </div>
         </div>
     </div>
@@ -97,7 +80,7 @@
             lengthMenu: [5, 10, 25],
             dom: '<"d-flex justify-content-between align-items-center"l<"d-flex"f>>rtip',
             columns: [
-                {  
+                {
                     data: null,
                     name: 'serial_no',
                     render: function (data, type, row, meta) {
@@ -145,7 +128,7 @@
         data: {
             amount: amount,
             note: note, // Include note if needed
-            _token: '{{ csrf_token() }}', 
+            _token: '{{ csrf_token() }}',
         },
         success: function(response) {
             // Handle success response
@@ -167,7 +150,7 @@
         error: function(xhr, status, error) {
             // Handle error response
             let errorMessage;
-    
+
     // Check if the response has a JSON body
     if (xhr.responseJSON && xhr.responseJSON.message) {
         errorMessage = xhr.responseJSON.message; // Custom server error message
@@ -197,11 +180,18 @@
         color: #000;
     }
     #Withdrawal-table th {
-        background-color: #001f2e;
-        color: #FFF;
+        background-color: #7952B3;
+        color: #000;
     }
     #create-Withdrawal-btn {
         margin-bottom: 15px;
         border-radius: 50px;
+        background-color: #7952B3;
+        color:#FFF;
+    }
+    .btn-primay
+    {
+        background-color: #7952B3;
+        color:#FFF;
     }
 </style>

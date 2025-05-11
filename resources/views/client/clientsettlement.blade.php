@@ -3,26 +3,8 @@
 
 <div class="main-content">
     <h2 id="titlepage">Settlement Requests</h2>
-
-    <!-- Add date filters for start and end date -->
-    <div class="container">
-    <div class="row mb-3">
-        <!-- Start Date -->
-        <div class="col-12 col-sm-6 mb-3 mb-sm-0">
-            <label for="start-date" class="form-label">Start Date</label>
-            <input type="date" id="start-date" class="form-control" placeholder="Start Date">
-        </div>
-
-        <!-- End Date -->
-        <div class="col-12 col-sm-6">
-            <label for="end-date" class="form-label">End Date</label>
-            <input type="date" id="end-date" class="form-control" placeholder="End Date">
-        </div>
-    </div>
-</div>
-
     <div class="d-flex justify-content-end mb-3">
-        <button id="create-settlement-btn" class="btn btn-primary" data-bs-toggle="modal"
+        <button id="create-settlement-btn" class="btn btn-primay" data-bs-toggle="modal"
             data-bs-target="#createSettlementModal">Create Request</button>
     </div>
     <table id="settlement-table" class="table table-striped">
@@ -48,7 +30,7 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#001f2e">
+            <div class="modal-header" style="background-color:#7952B3">
                 <h5 class="modal-title" style="color:#FFF" id="createSettlementModalLabel">Create Settlement Request
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
@@ -125,8 +107,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="submitSettlement" class="btn btn-primary">Submit Request</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="submitSettlement" class="btn btn-primay">Submit Request</button>
             </div>
         </div>
     </div>
@@ -215,7 +197,7 @@
                 return 'No details available'; // If data is empty or null
             }
         },
-                
+
                 { data: 'status', name: 'status' }
             ]
         });
@@ -370,7 +352,7 @@
                 },
                 error: function (xhr, status, error) {
                     let errorMessage;
-    
+
     // Check if the response has a JSON body
     if (xhr.responseJSON && xhr.responseJSON.message) {
         errorMessage = xhr.responseJSON.message; // Custom server error message
@@ -398,11 +380,18 @@
         color: #000;
     }
     #settlement-table th {
-        background-color: #001f2e;
-        color: #FFF;
+        background-color: #7952B3;
+        color: #000;
     }
     #create-settlement-btn {
         margin-bottom: 15px;
         border-radius: 50px;
+     background-color: #7952B3;
+        color:#FFF;
+    }
+    .btn-primay
+    {
+        background-color: #7952B3;
+        color:#FFF;
     }
 </style>
