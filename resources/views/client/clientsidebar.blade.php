@@ -66,17 +66,9 @@
         <div class="text-center" style="color:#fff;">
             <h5 id="page-title"></h5>
         </div>
-        <div class="dropdown">
-            <button class="dropdown-toggle" style="color:#fff;">
-                <i class="fa-solid fa-circle-user" style="color:#fff;"></i>
-            </button>
-            <div class="dropdown-menu">
-                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').`su`bmit();">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
-            </div>
-        </div>
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <i class="fa-solid fa-right-from-bracket  fa-2xl" style="color: #7952B3;"></i>
+        </a>
 
     </div>
 </div>
