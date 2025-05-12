@@ -87,7 +87,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="card card-success">
                 <div class="card-body">
-                    <i class="fas fa-exchange-alt card-icon"></i>
+                    <i class="fa-solid fa-landmark"></i>
                     <h5 class="card-title">Success Deposit</h5>
                     <p class="card-text">Total: {{ $resolvedpayment ??0.00 }}</p>
                 </div>
@@ -98,8 +98,26 @@
             <div class="card card-dark">
                 <div class="card-body">
                     <i class="fas fa-percent card-icon"></i>
-                    <h5 class="card-title">Comission On Deposit ({{$deposite_percentage}}%)</h5>
+                    <h5 class="card-title">Deposit Comission({{$deposite_percentage}}%)</h5>
                     <p class="card-text">Total: {{$deposite_percentage_amount??'0.00'}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-dark2">
+                <div class="card-body">
+                    <i class="fa-solid fa-coins card-icon"></i>
+                    <h5 class="card-title">Settlement Amount</h5>
+                    <p class="card-text">Total: {{$settlemtnamount??'0.00'}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-danger">
+                <div class="card-body">
+                    <i class="fa-solid fa-comments-dollar card-icon"></i>
+                    <h5 class="card-title">Outstanding Balance</h5>
+                    <p class="card-text">Total: {{$outstanding??'0.00'}}</p>
                 </div>
             </div>
         </div>
@@ -112,7 +130,7 @@
                 <div class="card-body">
                     <i class="fas fa-exchange-alt card-icon"></i>
                     <h5 class="card-title">Withdrawal Load</h5>
-                    <p class="card-text">Total: {{ $withdraw ??'0.00' }}</p>
+                    <p class="card-text">Total: {{ $withdrawload ??'0.00' }}</p>
                 </div>
             </div>
         </div>
@@ -122,6 +140,24 @@
                 <i class="fas fa-percent card-icon"></i>
                     <h5 class="card-title">Comission({{$withdraw_percentage}}%)</h5>
                     <p class="card-text">Total: {{$withdrawpercamount ?? '0.00'}} </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-success">
+                <div class="card-body">
+               <i class="fa-solid fa-wallet card-icon"></i>
+                    <h5 class="card-title">Total Withdraw</h5>
+                    <p class="card-text">Total: {{$withdraw ?? '0.00'}} </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-warning">
+                <div class="card-body">
+               <i class="fa-solid fa-money-bill card-icon"></i>
+                    <h5 class="card-title">Available Amount</h5>
+                    <p class="card-text">Total: {{$availbaleamount ?? '0.00'}} </p>
                 </div>
             </div>
         </div>
