@@ -53,37 +53,8 @@ class ClientSettlementController extends Controller
     {
         $username = auth()->user()->username;
         $deposite_percentage = auth()->user()->client_deposite_percentage;
-        // $withdraw_percentage = auth()->user()->client_withdraw_percentage;
-
-        // Fetch all records for the current user
         $clientAmounts = ClientAmountDetail::where('merchant_name', $username)->get();
-
-        // Initialize total amounts
-        // $totalDepositAmount = 0;
-        // $totalTransactionFee = 0;
-        // $totalWithdrawAmount = 0;
-        // $totalTransactionWithdrawFee = 0;
-
-        // // Iterate over the collection, calculate transaction fees, and sum the amounts
         foreach ($clientAmounts as $clientAmount) {
-        //     $totalDepositAmount += $clientAmount->total_deposit_amount;
-        //     $totalWithdrawAmount = $clientAmount->total_withdraw_amount;
-
-        //     // Calculate transaction fee as 8% of total deposit amount
-        //     $transactionFee = ($clientAmount->total_deposit_amount * $deposite_percentage) / 100;
-        //     $totalTransactionFee += $transactionFee;
-
-        //     //calculate transaction fee of withdraw
-        //     $remainingAfterDepositFee = $totalDepositAmount - $totalTransactionFee;
-        //     // $transactionWithdrawFee = ($remainingAfterDepositFee * $withdraw_percentage) / 100;
-        //     // $totalTransactionWithdrawFee += $transactionWithdrawFee;
-
-
-        //     // Update and save the transaction fee for each record
-        //     // $clientAmount->transaction_fee_withdraw = $transactionWithdrawFee;
-        //     $clientAmount->total_available_amount = $totalDepositAmount - $totalTransactionFee - $totalWithdrawAmount - $totalTransactionWithdrawFee;
-        //     $clientAmount->transaction_fee_deposite = $transactionFee;
-        //     $clientAmount->save();
         $totalAmount = $clientAmount->total_outstanding_amount;
         }
 

@@ -93,6 +93,7 @@ class ClientWithdrawalController extends Controller
                 $clientAccount->total_outstanding_amount -= $validatedData['amount'];
                 $clientAccount->total_withdraw_amount += $withdrawAMount;
                 $clientAccount->tota_amt_to_withdraw += $withdrawAMount;
+                $clientAccount->total_available_amount += $withdrawAMount;
                 $clientAccount->save();
 
                 // Commit the transaction
