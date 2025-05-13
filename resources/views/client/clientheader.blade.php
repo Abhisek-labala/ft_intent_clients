@@ -24,7 +24,7 @@
     <link href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet"href="{{asset('css/styles.css')}}">
+<link rel="stylesheet" href="{{ asset('css/styles.css') }}?v=1.0.0">
 
 </head>
 
