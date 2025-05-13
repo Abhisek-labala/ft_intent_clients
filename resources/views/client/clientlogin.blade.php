@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- Replace with actual CSRF token -->
     <title>Login</title>
-    <link rel="icon" type="image/png" href="{{asset('uploads/Logo/logo_new.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('uploads/Logo/logonew.png')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
@@ -221,7 +221,7 @@
             <div class="screen__content">
                 <form class="login" id="loginForm" method="POST" action="{{ route('clientlogin') }}"> <!-- Update action URL as needed -->
                     <div class="login-logo">
-                        <img src="{{asset('uploads/Logo/logo_new.png')}}" alt="Company Logo">
+                        <img src="{{asset('uploads/Logo/logonew.png')}}" alt="Company Logo">
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
