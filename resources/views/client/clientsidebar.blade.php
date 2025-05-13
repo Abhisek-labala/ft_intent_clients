@@ -1,7 +1,7 @@
 <div class="main-wrapper">
 <div class="sidebar">
     <div class="navbar-brand">
-        <img src="{{ asset('uploads/Logo/logo_new.png') }}" alt="Brand Logo" id="sidebar-logo" />
+        <img src="{{ asset('uploads/Logo/logonew.png') }}" alt="Brand Logo" id="sidebar-logo" />
     </div>
     <a href="{{route('client.dashboard')}}"><i class="fas fa-tachometer-alt"></i><span class="link-text">Dashboard</span></a>
     <div class="dropdown">
@@ -61,7 +61,7 @@
 
     <div class="top-nav">
         <div class="top-nav-left">
-            <img src="{{ asset('uploads/Logo/logo_new.png') }}" alt="Brand Logo" id="mobile-logo" />
+            <img src="{{ asset('uploads/Logo/logonew.png') }}" alt="Brand Logo" id="mobile-logo" />
         </div>
         <div class="text-center" style="color:#fff;">
             <h5 id="page-title"></h5>
