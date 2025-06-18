@@ -2,17 +2,6 @@
 @include('client/clientsidebar')
 <div class="main-content">
     <h2 class="page-title">Deposites</h2>
-    <div class="row mb-3 statusFilters">
-        <div class="col-md-3">
-            <label>Filter Status</label>
-            <select id="statusFilter" class="form-select">
-            <option value="">All</option>
-                <option value="Pending">Pending</option>
-                <option value="Completed">Completed</option>
-                <option value="Expected Failure">Failed</option>
-            </select>
-        </div>
-    </div>
     <table id="payin-table" class="table table-striped table-bordered dt-responsive nowrap">
         <thead>
             <tr>

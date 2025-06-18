@@ -2,17 +2,6 @@
 @include('client/clientsidebar')
 <div class="main-content">
     <h2 class="page-title">Withdrawals</h2>
-    <div class="row mb-3 statusFilters">
-        <div class="col-md-3">
-            <label>Filter Status</label>
-            <select id="statusFilter" class="form-select">
-               <option value="">All</option>
-                <option value="Pending">Pending</option>
-                <option value="Completed">Completed</option>
-                <option value="Payment Failure">Failed</option>
-            </select>
-        </div>
-    </div>
     <!-- <button type="button" class="btn btn-success addpayout-btn" data-bs-toggle="modal" data-bs-target="#addTransactionModal">Add Transaction</button> -->
     <div style="overflow-x:auto;">
 <table id="payout-table" class="table table-striped table-bordered dt-responsive nowrap">
