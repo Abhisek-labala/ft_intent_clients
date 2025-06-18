@@ -61,7 +61,7 @@ class ClientWithdrawalController extends Controller
 
         // Validate the request data
         $validatedData = $request->validate([
-            'amount' => 'required|numeric|min:1',
+            'amount' => 'required|numeric|min:10000',
         ]);
 
         if($validatedData['amount']<10000)
@@ -69,7 +69,7 @@ class ClientWithdrawalController extends Controller
             return response()->json(['success'=>false,'message'=>"minimum withdrawal amount is 10000"],500);
         }
         $clientAccount = ClientAmountDetail::where('merchant_name', $username)->first();
-        $percentage=User::where('username',$username)->value('client_withdraw_percentage');
+        // $percentage=User::where('username',$username)->value('client_withdraw_percentage');
 
         if ($clientAccount && $clientAccount->total_outstanding_amount >= $validatedData['amount']) {
             $withdrawnumber = 'FTWD-' . mt_rand(1000, 9999) . time();
@@ -87,9 +87,7 @@ class ClientWithdrawalController extends Controller
 
                 // Deduct the settlement amount from the totaldeposite
                 $amount=$validatedData['amount'];
-                $transactionfees=($amount*$percentage)/100;
-                $withdrawAMount =$amount -$transactionfees;
-                $clientAccount->transaction_fee_withdraw +=$transactionfees;
+                $withdrawAMount =$amount;
                 $clientAccount->total_outstanding_amount -= $validatedData['amount'];
                 $clientAccount->total_withdraw_amount += $withdrawAMount;
                 $clientAccount->tota_amt_to_withdraw += $withdrawAMount;
