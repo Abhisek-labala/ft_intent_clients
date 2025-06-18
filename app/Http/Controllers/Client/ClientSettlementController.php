@@ -32,7 +32,7 @@ class ClientSettlementController extends Controller
                 ], 400);
             }
         }
-
+        $query->orderBy('id', 'desc');
         return datatables()->of($query)
             ->addColumn('converted_amount', function (ClientSettlement $settlement) {
                 return $settlement->settlement_amount;

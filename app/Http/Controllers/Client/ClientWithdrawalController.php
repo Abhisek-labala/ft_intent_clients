@@ -36,7 +36,7 @@ class ClientWithdrawalController extends Controller
                 ], 400);
             }
         }
-
+        $query->orderBy('id', 'desc');
         return datatables()->of($query)
             ->addColumn('withdrawn_amount', function (ClientWithdraw $withdraw) {
                 return $withdraw->withdraw_amount;
