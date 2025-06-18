@@ -9,7 +9,7 @@
             <option value="">All</option>
                 <option value="Pending">Pending</option>
                 <option value="Completed">Completed</option>
-                <option value="Payment Failure">Failed</option>
+                <option value="Expected Failure">Failed</option>
             </select>
         </div>
     </div>
