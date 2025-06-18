@@ -135,20 +135,20 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-6">
-            <div class="card card-dark">
-                <div class="card-body">
-                <i class="fas fa-percent card-icon"></i>
-                    <h5 class="card-title">Comission({{$withdraw_percentage}}%)</h5>
-                    <p class="card-text">Total: {{$withdrawpercamount ?? '0.00'}} </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
             <div class="card card-success">
                 <div class="card-body">
                <i class="fa-solid fa-wallet card-icon"></i>
                     <h5 class="card-title">Total Withdraw</h5>
                     <p class="card-text">Total: {{$withdraw ?? '0.00'}} </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="card card-dark">
+                <div class="card-body">
+                <i class="fas fa-percent card-icon"></i>
+                    <h5 class="card-title">Payout Merchant Fee</h5>
+                    <p class="card-text">Total: {{$withdrawpercamount ?? '0.00'}} </p>
                 </div>
             </div>
         </div>

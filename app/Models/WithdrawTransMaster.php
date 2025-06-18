@@ -36,6 +36,7 @@ class WithdrawTransMaster extends Model
         'our_client_user_name',
         'status',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'withdraw_fee'
     ];
 }

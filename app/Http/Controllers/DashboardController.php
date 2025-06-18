@@ -27,7 +27,7 @@ class DashboardController extends Controller
         $settlemtnamount =ClientSettlement::where('merchant_name',$username)->where('status','approved')->sum('settlement_amount');
         $outstanding =ClientAmountDetail::where('merchant_name',$username)->value('total_outstanding_amount');
         $withdrawload=ClientWithdraw::where('merchant_name',$username)->where('status','Success')->sum('withdraw_amount');
-        $withdrawpercamount =($withdrawload * $withdraw_percentage)/100;
+        $withdrawpercamount =WithdrawTransMaster::where('our_client_user_name',$username)->where('withdraw_status_code', '3')->sum('withdraw_fee');
         $availbaleamount =ClientAmountDetail::where('merchant_name',$username)->value('total_available_amount');
         return view('client.dashboard', compact(
             'overaldeposit','resolvedpayment', 'deposite_percentage_amount','withdraw','withdraw_percentage',
