@@ -6,14 +6,10 @@
         <div class="col-md-3">
             <label>Filter Status</label>
             <select id="statusFilter" class="form-select">
-                <option value="">All</option>
-                <option value="pending">Pending</option>
-                <option value="approved">Approved</option>
-                <option value="expired">Expired</option>
-                <option value="timed_out">Timed Out</option>
-                <option value="rejected">Rejected</option>
-                <option value="failed">Failed</option>
-                <option value="wrong-raise">Wrong Raise</option>
+            <option value="">All</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+                <option value="Payment Failure">Failed</option>
             </select>
         </div>
     </div>
@@ -84,7 +80,19 @@
                 { data: 'order_id' },
                 { data: 'applied_amount' },
                 { data: 'real_amount' },
-                { data: 'status' },
+                { data: 'status',
+                     render: function (data, type, row) {
+                        let statusClass = 'status-default';
+                        if (data === 'Pending') {
+                            statusClass = 'status-pending';
+                        } else if (data === 'Completed') {
+                            statusClass = 'status-approved';
+                        } else if (data === 'Failed') {
+                            statusClass = 'status-rejected';
+                        }
+                        return `<span class="${statusClass}">${data}</span>`;
+                    }, width: '2%'
+                },
                 {
                     data: 'created_at',
                     render: function (data, type, row) {

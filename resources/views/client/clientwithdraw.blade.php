@@ -6,36 +6,36 @@
         <div class="col-md-3">
             <label>Filter Status</label>
             <select id="statusFilter" class="form-select">
-            <option value="">All</option>
-                <option value="pending">Pending</option>
-                <option value="approved">Approved</option>
-                <option value="expired">Expired</option>
-                <option value="timed_out">Timed Out</option>
-                <option value="rejected">Rejected</option>
-                <option value="failed">Failed</option>
-                <option value="wrong-raise">Wrong Raise</option>
+               <option value="">All</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+                <option value="Payment Failure">Failed</option>
             </select>
         </div>
     </div>
     <!-- <button type="button" class="btn btn-success addpayout-btn" data-bs-toggle="modal" data-bs-target="#addTransactionModal">Add Transaction</button> -->
-    <table id="payout-table" class="table table-striped table-bordered dt-responsive nowrap">
+    <div style="overflow-x:auto;">
+<table id="payout-table" class="table table-striped table-bordered dt-responsive nowrap">
         <thead>
             <tr>
                 <th>#</th>
                 <th>ID</th>
                 <th>Order ID</th>
-               <th>Requested Amount</th>
-               <th>Actual Amount</th>
+                <th>Requested Amount</th>
+                <th>Merchant Fee</th>
+                <th>Actual Amount</th>
+                <th>Status</th>
                 <th>Username</th>
                 <th>Account No</th>
                 <th>Bank Name</th>
                 <th>Bank code</th>
                 <th>IFSC code</th>
-                <th>Status</th>
                 <th>created_at</th>
             </tr>
         </thead>
     </table>
+    </div>
+
 </div>
 
 
@@ -87,15 +87,27 @@
                 { data: 'id', visible: false },
                 { data: 'our_client_order_id' },
                 { data: 'remittance_amount' },
+                { data: 'withdraw_fee' },
                 { data: 'apply_amount' },
+                {
+                    data: 'status_level',
+                     render: function (data, type, row) {
+                        let statusClass = 'status-default';
+                        if (data === 'Pending') {
+                            statusClass = 'status-pending';
+                        } else if (data === 'Completed') {
+                            statusClass = 'status-approved';
+                        } else if (data === 'Failed') {
+                            statusClass = 'status-rejected';
+                        }
+                        return `<span class="${statusClass}">${data}</span>`;
+                    }, width: '2%'
+                },
                 { data: 'apply_user_name' },
                 { data: 'apply_account' },
                 { data: 'apply_bank_name' },
                 { data: 'apply_bank_code' },
                 { data: 'apply_ifsc' },
-                {
-                    data: 'status_level',
-                },
                 {
                     data: 'created_at',
                     render: function (data, type, row) {
@@ -104,12 +116,8 @@
                 },
             ],
             responsive: true,
-            order: [[0, 'desc']],
             dom: 'Bfrtip',
             pageLength: 10,
-            scrollX:true,
-              scrollCollapse: true, // Prevent excessive scrolling
-                fixedColumns: true,
             lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
             buttons: [
                 {
@@ -180,4 +188,25 @@
         color: gray;
         font-weight: bold;
     }
+    .status-approved {
+        color: green;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .status-rejected {
+        color: red;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .status-pending {
+        color: orange;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .status-default {
+    color: #333;
+    font-weight: bold;
+}
 </style>

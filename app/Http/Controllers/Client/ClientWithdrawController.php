@@ -20,24 +20,27 @@ class ClientWithdrawController extends Controller
 
     public function getData(Request $request)
     {
-        $userid=Auth::id();
-    $username = User::where('id', $userid)->value('username');
+        $userid = Auth::id();
+        $username = User::where('id', $userid)->value('username');
         $payouts = DB::table('withdraw_trans_master as wtm')
-        ->where('our_client_user_name',$username)
-        ->leftJoin('withdraw_status_code as wsc','wsc.status_code','=','wtm.withdraw_status_code')
-        ->select(['wtm.id',
-        'wtm.our_client_order_id',
-        'wtm.remittance_amount',
-        'wtm.apply_amount',
-        'wtm.apply_user_name',
-        'wtm.apply_account',
-        'wtm.apply_bank_name',
-        'wtm.apply_bank_code',
-        'wtm.apply_ifsc',
-        'wtm.status',
-        'wtm.created_at',
-        'wsc.status_level'
-        ])
+            ->where('our_client_user_name', $username)
+            ->leftJoin('withdraw_status_code as wsc', 'wsc.status_code', '=', 'wtm.withdraw_status_code')
+            ->select([
+                'wtm.id',
+                'wtm.order_id',
+                'wtm.our_client_order_id',
+                'wtm.remittance_amount',
+                'wtm.apply_amount',
+                'wtm.apply_user_name',
+                'wtm.apply_account',
+                'wtm.apply_bank_name',
+                'wtm.apply_bank_code',
+                'wtm.apply_ifsc',
+                'wtm.status',
+                'wtm.created_at',
+                'wsc.status_level',
+                'withdraw_fee'
+            ])->orderBy('wtm.id', 'desc')
             ->get();
 
         return DataTables::of($payouts)
