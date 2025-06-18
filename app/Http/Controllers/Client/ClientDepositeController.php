@@ -33,7 +33,7 @@ class ClientDepositeController extends Controller
         'dtm.deposite_status_code as status_code',
         'dtm.created_at as created_at',
         'dsc.status_label as status'
-    ])
+    ])->orderBy('dtm.id','desc')
     ->get();
 
     return DataTables::of($payins)

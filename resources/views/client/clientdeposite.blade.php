@@ -90,7 +90,6 @@
                 }
             ],
             responsive: true,
-            order: [[0, 'desc']],
 
         });
         function showToast(type, title, text) {
