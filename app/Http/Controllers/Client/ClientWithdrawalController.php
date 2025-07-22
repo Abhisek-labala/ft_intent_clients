@@ -61,12 +61,12 @@ class ClientWithdrawalController extends Controller
 
         // Validate the request data
         $validatedData = $request->validate([
-            'amount' => 'required|numeric|min:10000',
+            'amount' => 'required|numeric|min:1000',
         ]);
 
-        if($validatedData['amount']<10000)
+        if($validatedData['amount']<1000)
         {
-            return response()->json(['success'=>false,'message'=>"minimum withdrawal amount is 10000"],500);
+            return response()->json(['success'=>false,'message'=>"minimum withdrawal amount is 1000"],500);
         }
         $clientAccount = ClientAmountDetail::where('merchant_name', $username)->first();
         // $percentage=User::where('username',$username)->value('client_withdraw_percentage');
